@@ -3,8 +3,17 @@
 #include "opencv2/opencv.hpp"
 
 VideoProcessor::VideoProcessor(QObject *parent)
-    : QObject{parent}
-{}
+    // : QObject{parent}
+    : QObject{nullptr} // !!! An object that has a parent cannot be moved into a new thread
+{
+    this->moveToThread(new QThread(parent));
+
+    connect(this->thread(), SIGNAL(started()),
+            this, SLOT(startVideo()));
+
+    connect(this->thread(), SIGNAL(finished()),
+            this, SLOT(deleteLater()));
+}
 
 void VideoProcessor::startVideo()
 {

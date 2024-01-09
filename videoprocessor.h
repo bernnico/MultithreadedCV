@@ -9,7 +9,7 @@ class VideoProcessor : public QObject
 {
     Q_OBJECT
 public:
-    explicit VideoProcessor(QObject *parent = nullptr);
+    explicit VideoProcessor(QObject *parent);
 
 signals:
     void inDisplay(QPixmap pixmap);

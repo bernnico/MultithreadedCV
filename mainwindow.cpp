@@ -16,14 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     processor.start();
 #else
-    processor = new VideoProcessor();
-    processor->moveToThread(new QThread(this));
-
-    connect(processor->thread(), SIGNAL(started()),
-            processor, SLOT(startVideo()));
-
-    connect(processor->thread(), SIGNAL(finished()),
-            processor, SLOT(deleteLater()));
+    processor = new VideoProcessor(this);
 
     connect(processor, SIGNAL(inDisplay(QPixmap)),
             ui->inVideo, SLOT(setPixmap(QPixmap)));
@@ -44,6 +37,7 @@ MainWindow::~MainWindow()
     processor->stopVideo();
     processor->thread()->quit();
     processor->thread()->wait();
+    // do not delete processor pointer;
 #endif /* USE_QTHREAD */
 
     delete ui;
