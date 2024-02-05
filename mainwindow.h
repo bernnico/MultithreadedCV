@@ -3,16 +3,13 @@
 
 #include <QMainWindow>
 
-// #define USE_QTHREAD
+#define USE_QTHREAD
 
 #ifdef USE_QTHREAD
 #include "videoprocessorthread.h"
 #else
 #include "videoprocessor.h"
 #endif /* USE_QTHREAD */
-
-
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -34,7 +31,7 @@ private:
 #ifdef USE_QTHREAD
     VideoProcessorThread processor;
 #else
-    VideoProcessor *processor;
+    VideoProcessor processor;
 #endif /* USE_QTHREAD */
 };
 #endif // MAINWINDOW_H

@@ -4,6 +4,7 @@
 #include <QThread>
 #include <QPixmap>
 
+
 class VideoProcessorThread : public QThread
 {
     Q_OBJECT
@@ -16,6 +17,7 @@ signals:
 
 private:
     void run() override;
+
 };
 
 #endif // VIDEOPROCESSORTHREAD_H

@@ -21,6 +21,7 @@ public slots:
 
 private:
     bool stopped;
+
 };
 
 #endif // VIDEOPROCESSOR_H

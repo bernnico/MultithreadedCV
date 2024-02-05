@@ -2,6 +2,8 @@
 
 #include "opencv2/opencv.hpp"
 
+#include <QDebug>
+
 VideoProcessor::VideoProcessor(QObject *parent)
     // : QObject{parent}
     : QObject{nullptr} // !!! An object that has a parent cannot be moved into a new thread
@@ -13,6 +15,8 @@ VideoProcessor::VideoProcessor(QObject *parent)
 
     connect(this->thread(), SIGNAL(finished()),
             this, SLOT(deleteLater()));
+
+    qDebug() << "Process in a single thread";
 }
 
 void VideoProcessor::startVideo()

@@ -2,9 +2,13 @@
 
 #include "opencv2/opencv.hpp"
 
+#include <QDebug>
+
 VideoProcessorThread::VideoProcessorThread(QObject *parent)
     : QThread{parent}
-{}
+{
+    qDebug() << "Process in multi thread";
+}
 
 void VideoProcessorThread::run()
 {
