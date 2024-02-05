@@ -1,9 +1,9 @@
 #ifndef VIDEOPROCESSORTHREAD_H
 #define VIDEOPROCESSORTHREAD_H
 
+
 #include <QThread>
 #include <QPixmap>
-
 
 class VideoProcessorThread : public QThread
 {

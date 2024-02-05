@@ -7,7 +7,7 @@
 VideoProcessorThread::VideoProcessorThread(QObject *parent)
     : QThread{parent}
 {
-    qDebug() << "Process in multi thread";
+    qDebug() << "An object of type QThread";
 }
 
 void VideoProcessorThread::run()

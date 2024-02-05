@@ -16,7 +16,7 @@ VideoProcessor::VideoProcessor(QObject *parent)
     connect(this->thread(), SIGNAL(finished()),
             this, SLOT(deleteLater()));
 
-    qDebug() << "Process in a single thread";
+    qDebug() << "An object was moved to QThread";
 }
 
 void VideoProcessor::startVideo()
